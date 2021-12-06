@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
-const { port, db_name, db_host } = require("./config/config");
+const { port, database, db_host } = require("./config/config");
 
 const app = express();
 
@@ -21,7 +21,7 @@ next()
 });
 
 // Database creation and connection
-mongoose.connect(`mongodb://localhost:27017/${db_name}`)
+mongoose.connect(`${database}`)
         .then(() => {
             console.log('Database created and connected successfully!')
         })
